@@ -20,6 +20,6 @@ class Article extends Model
     }
 
     public function tag(){
-        return $this->belongsToMany(Tag::class , 'article_tag');
+        return $this->belongsToMany(Tag::class , 'article_tag')->withPivot('description');
     }
 }
