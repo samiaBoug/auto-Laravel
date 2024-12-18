@@ -23,6 +23,6 @@ class Article extends Model
         return $this->belongsToMany(Tag::class , 'article_tag')->withPivot('description');
     }
     public function comments(){
-        return $this->morphMany(Comment::class , 'commantable');
+        return $this->morphMany(Comment::class , 'commentable');
     }
 }
