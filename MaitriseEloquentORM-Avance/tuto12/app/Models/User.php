@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Article ;
 use App\Models\Profile ;
+use App\Models\Video ;
 
 class User extends Model
 {
@@ -15,5 +16,8 @@ class User extends Model
     }
     public function profile(){
         return $this->hasOne(Profile::class);
+    }
+    public function videos(){
+        return $this->hasMany(Video::class);
     }
 }
