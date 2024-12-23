@@ -14,14 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-        $this->call(UserAdminSeeder::class);
-        $this->call(CategorySeed::class);
-        $this->call(ArticleSeed::class);
-        $this->call(ManagerUserSeeder::class);
-        $this->call(TagSeed::class);
-        $this->call(TagArticleSeed::class);
 
-        
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',

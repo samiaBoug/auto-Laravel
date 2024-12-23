@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ManagerUserSeeder::class);
         $this->call(TagSeed::class);
         $this->call(TagArticleSeed::class);
+        $this->call(RolePermissionSeeder::class);
+
 
         
         User::factory()->create([

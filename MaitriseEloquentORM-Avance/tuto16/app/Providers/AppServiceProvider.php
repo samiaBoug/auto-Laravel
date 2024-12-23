@@ -2,18 +2,13 @@
 
 namespace App\Providers;
 
-use App\Policies\ArticlePolicy;
 use Illuminate\Support\ServiceProvider;
-use App\Models\Article;
 
 class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
      */
-    protected $policies = [
-        Article::class => ArticlePolicy::class ,
-    ];
     public function register(): void
     {
         //
@@ -25,6 +20,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-       
     }
 }
