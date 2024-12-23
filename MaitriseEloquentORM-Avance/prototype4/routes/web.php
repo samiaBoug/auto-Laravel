@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -11,11 +12,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard' , function(){
-return view('admin.dashboard');
-});
-
-Route::get('/test' , function(){
-    return 'hi admin';
-    })->middleware('role:admin');
-
+Route::get('/',[ ArticleController::class , 'index']);
