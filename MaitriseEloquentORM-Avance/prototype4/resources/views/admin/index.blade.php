@@ -36,11 +36,11 @@
                   <td>{{ $article->content}}</td>
                 
                   <td>
-                    <a href="{{route('show', $article->id) }}" class="btn btn-info btn-sm">Voir</a>
-                    <a href="{{route('edit', $article->id) }}" class="btn btn-warning btn-sm">Modifier</a>
-                    <form action="{{ route('destroy' , $article->id)}}" method="post">
+                    <a href="" class="btn btn-info btn-sm">Voir</a>
+                    <a href="" class="btn btn-warning btn-sm">Modifier</a>
+                    <form action="{{ route('articles.destroy' , $article->id)}}" method="post">
                       @csrf 
-                      @method('DELEATE')
+                      @method('DELETE')
                       <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                     </form>
                   </td>
@@ -53,17 +53,7 @@
                 
                   
                 
-                <tr>
-                  <td>2</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <a href="#" class="btn btn-info btn-sm">Voir</a>
-                    <a href="#" class="btn btn-warning btn-sm">Modifier</a>
-                    <a href="#" class="btn btn-danger btn-sm">Supprimer</a>
-                  </td>
-                </tr>
+               
               </tbody>
             </table>
           </div>
