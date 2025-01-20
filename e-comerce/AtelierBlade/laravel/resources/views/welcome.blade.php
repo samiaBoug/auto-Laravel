@@ -20,7 +20,7 @@
     <script>
     {{-- var app = <?php echo json_encode($array); ?> --}} ;
     //var app = {{ Illuminate\Support\Js::from($array) }};
-    var app = {{ Js::from($array) }};
+    //var app = {{ Js::from($array) }};
     console.log(app)
     let name = "John Doe"
     </script>
@@ -33,7 +33,21 @@
     </script>
     @endverbatim
 
-
+    @php
+    $isActive = false;
+    $hasError = true;
+@endphp
+<div>
+    <span @class([
+        'p-4',
+        'font-bold' => $isActive,
+        'text-gray-500' => ! $isActive,
+        'bg-red' => $hasError,
+        ])>erreur
+    </span>
+ 
+    <span class="p-4 text-gray-500 bg-red">erreur</span>
+</div>
 
 </body>
 </html>
