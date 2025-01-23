@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-commerce</title>
-    <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.min.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Bootbox.js depuis le CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
+    <!-- Inclure Bootstrap JS (à la fin du fichier body) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
     @vite('resources/js/app.js')
 </head>
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
@@ -14,7 +20,13 @@
     @include('admin.includes.sidebar')
     @yield('content')
     </div>
-    <script src="{{ asset('adminlte/js/adminlte.min.js') }}"></script>
+    @yield('script')
+
+   
     @vite('resources/js/app.js')
+<!-- jQuery 3.6.4 (dernière version stable) -->
+
+
+
 </body>
 </html>
