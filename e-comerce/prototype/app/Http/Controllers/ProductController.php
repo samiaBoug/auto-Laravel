@@ -14,7 +14,7 @@ class ProductController extends Controller
     }
     public function index()
     {
-        $products = $this->productRepo->all() ;
+        $products = $this->productRepo->paginate() ;
         return view('admin.index' , compact('products'));
 
     }
@@ -25,6 +25,7 @@ class ProductController extends Controller
     public function create()
     {
         //
+        return view('admin.create');
     }
 
     /**
@@ -33,6 +34,16 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate(
+            [
+                "name"=> 'required|string|max:255',
+                "description"=> 'required|string',
+                "price"=>'required|integer'
+            ]
+            );
+        $this->productRepo->create($request);
+        return redirect()->route('products.index');
+            
     }
 
     /**
@@ -65,5 +76,7 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         //
+        $this->productRepo->delete($id);
+        return redirect()->route('products.index');
     }
 }

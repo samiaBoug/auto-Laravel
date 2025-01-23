@@ -6,8 +6,20 @@ use App\Models\Product;
 
 class ProductRepository
 {
-    public function all()
+    public function paginate()
     {
-        return Product::all(); // Retourne tous les produits
+        return Product::paginate(10); 
+    }
+
+    public function create($request){
+        Product::create([
+            "name"=> $request->input("name"),
+            "description"=> $request->input("description"),
+            "price" => $request->input("price")
+        ]);
+    }
+    public function delete($id){
+        $product = Product::where('id', $id)->first();
+        $product->delete();
     }
 }
