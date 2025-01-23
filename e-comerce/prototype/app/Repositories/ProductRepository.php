@@ -8,11 +8,11 @@ class ProductRepository
 {
     public function paginate()
     {
-        return Product::paginate(10); 
+        return Product::paginate(10);
     }
 
     public function create($request){
-        Product::create([
+       return Product::create([
             "name"=> $request->input("name"),
             "description"=> $request->input("description"),
             "price" => $request->input("price")

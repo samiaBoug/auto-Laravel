@@ -41,9 +41,14 @@ class ProductController extends Controller
                 "price"=>'required|integer'
             ]
             );
-        $this->productRepo->create($request);
-        return redirect()->route('products.index');
-            
+        $product= $this->productRepo->create($request);
+      
+        return response()->json([
+            'success' => true,
+            'message' => 'Produit créé avec succès.',
+            'product' => $product
+        ]);
+
     }
 
     /**
@@ -75,8 +80,19 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try{
+
         $this->productRepo->delete($id);
-        return redirect()->route('products.index');
+        return response()->json([
+            'success' => true,
+            'message' => 'Produit supprimé avec succès.'
+        ], 200);
+        }catch (\Exception $e){
+            return response()->json(['success' => false, 'message' => 'Erreur lors de la suppression.']);
+        }
     }
-}
+
+  }
+
+
+
