@@ -20,7 +20,7 @@
             <td >{{ prod.description }}</td>
             <td>{{ prod.price }}</td>
             <td>
-            <button type="">Suprimer</button>
+            <button type="" @click="deleteProduct(prod.id)" >Suprimer</button>
             <button type="">Modifier</button>
             </td>
 
@@ -61,7 +61,21 @@ function addNewProduct(newProduct){
     products.value.push(newProduct)
 }
 
+// delete
+const deleteProduct=  async (id)=>{
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')) {
+        try {
+            await axios.delete(`/products/${id}`); // Requête DELETE avec l'ID du produit
+            products.value = products.value.filter(prod => prod.id !== id); // Mise à jour de la liste locale
+            alert('Produit supprimé avec succès !');
+        } catch (error) {
+            console.error('Erreur lors de la suppression :', error);
+            alert('Une erreur est survenue lors de la suppression du produit.');
+        }
+    }
 
+
+}
 
 </script>
 

@@ -82,6 +82,7 @@ class ProductController extends Controller
         try{
 
         $this->productRepo->delete($id);
+        
         return response()->json([
             'success' => true,
             'message' => 'Produit supprimé avec succès.'
