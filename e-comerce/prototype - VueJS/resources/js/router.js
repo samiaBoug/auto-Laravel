@@ -8,8 +8,12 @@ const routes = [
 		},
 		{
 			path: '/dashboard',
-			component: ()=>{import('./pages/Dashboard.vue')}
-		}
+			component: ()=>import('./pages/Dashboard.vue')
+		},
+        {
+            path: '/login',
+            component: ()=>import('./pages/Login.vue')
+        }
 ]
 const router = createRouter({
 	history : createWebHistory(),
