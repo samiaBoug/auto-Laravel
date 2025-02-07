@@ -14,7 +14,7 @@
             <td>Prix</td>
             <td>Action</td>
             </tr>
-            <tr v-for="prod in products">
+            <tr v-for="prod in products" >
             <td >{{ prod.id }}</td>
             <td >{{ prod.name }}</td>
             <td >{{ prod.description }}</td>
@@ -36,14 +36,14 @@ import axios from 'axios';
 import { ref , reactive , onMounted} from 'vue';
 import CreateComponent from '../Components/CreateComponent.vue'
 
-const show = ref(false); // Reactive show state
+const show = ref(false); 
 
 function showModal() {
-    show.value = true; // Show modal
+    show.value = true; 
 }
 
 function hideModal() {
-    show.value = false; // Hide modal
+    show.value = false; 
 }
 //jebt data mn route et affichitha fl page
 const products = ref([])
